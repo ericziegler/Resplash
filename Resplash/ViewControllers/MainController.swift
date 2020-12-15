@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainController: BaseViewController {
+class MainController: BaseViewController, CalendarViewDelegate {
 
     // MARK: - Properties
 
@@ -28,6 +28,7 @@ class MainController: BaseViewController {
     @IBOutlet var amount20Button: RegularButton!
 
     private var showingAddMenu = false
+    private var calendarView: CalendarView?
 
     // MARK: - UIViewController
 
@@ -81,7 +82,11 @@ class MainController: BaseViewController {
     // MARK: - Actions
 
     @IBAction func dateTapped(_ sender: AnyObject) {
-        print("DATE")
+        DispatchQueue.main.async {
+            self.calendarView = CalendarView.createCalendarFor(parentController: self, selectedDate: Date(), minDate: .distantPast, maxDate: Date(), tint: UIColor.main)
+            self.calendarView?.delegate = self
+            self.calendarView?.showCalendar()
+        }
     }
 
     @IBAction func addTapped(_ sender: AnyObject) {
@@ -142,6 +147,25 @@ class MainController: BaseViewController {
     private func updateAddMenuAlpha(_ alpha: CGFloat) {
         for curView in self.addMenu.subviews {
             curView.alpha = alpha
+        }
+    }
+
+    private func updateSelectedDate(_ date: Date) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE MM/d/yy"
+        dateLabel.text = formatter.string(from: date)
+    }
+
+    // MARK: - CalendarViewDelegate
+
+    func calendarViewDidCancel(_ calendarView: CalendarView) {
+        calendarView.hideCalendar()
+    }
+
+    func dateSelected(_ date: Date, calendarView: CalendarView) {
+        DispatchQueue.main.async {
+            self.updateSelectedDate(date)
+            calendarView.hideCalendar()
         }
     }
 
