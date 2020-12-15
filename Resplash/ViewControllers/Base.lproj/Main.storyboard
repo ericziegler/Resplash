@@ -142,7 +142,7 @@
                                         <rect key="frame" x="200" y="16.5" width="22" height="10"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LF-Ic-YfJ" userLabel="Date Button" customClass="ActionButton" customModule="Resplash" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="222" height="41"/>
                                         <connections>
                                             <action selector="dateTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u74-9M-3Wz"/>
                                         </connections>
@@ -155,8 +155,8 @@
                                     <constraint firstItem="2LF-Ic-YfJ" firstAttribute="top" secondItem="vid-QA-ePb" secondAttribute="top" id="9xE-bE-e42"/>
                                     <constraint firstItem="cDU-gR-z0L" firstAttribute="leading" secondItem="KmA-0R-zWy" secondAttribute="trailing" constant="12" id="BA0-wl-Tg5"/>
                                     <constraint firstItem="2LF-Ic-YfJ" firstAttribute="leading" secondItem="vid-QA-ePb" secondAttribute="leading" id="K4Y-Ao-Iab"/>
-                                    <constraint firstItem="cDU-gR-z0L" firstAttribute="leading" secondItem="2LF-Ic-YfJ" secondAttribute="trailing" id="MNx-AM-4V0"/>
                                     <constraint firstItem="cDU-gR-z0L" firstAttribute="centerY" secondItem="KmA-0R-zWy" secondAttribute="centerY" constant="1" id="Pho-fb-oQP"/>
+                                    <constraint firstAttribute="trailing" secondItem="2LF-Ic-YfJ" secondAttribute="trailing" id="cpk-5u-Bis"/>
                                     <constraint firstItem="KmA-0R-zWy" firstAttribute="leading" secondItem="vid-QA-ePb" secondAttribute="leading" id="ffK-ki-ybd"/>
                                     <constraint firstAttribute="bottom" secondItem="2LF-Ic-YfJ" secondAttribute="bottom" id="jiB-12-SdC"/>
                                     <constraint firstAttribute="bottom" secondItem="KmA-0R-zWy" secondAttribute="bottom" id="wN7-sr-rvg"/>
