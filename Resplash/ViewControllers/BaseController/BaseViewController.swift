@@ -10,8 +10,7 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .light
-        self.navigationController?.navigationBar.titleTextAttributes = navTitleTextAttributes()
+        overrideUserInterfaceStyle = .light        
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

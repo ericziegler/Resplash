@@ -4,22 +4,6 @@
 
 import UIKit
 
-// MARK: Global Properties
-
-func applyApplicationAppearanceProperties() {
-    UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : UIFont.appFontOfSize(17)], for: .normal)
-    UINavigationBar.appearance().tintColor = UIColor.main
-    UINavigationBar.appearance().barTintColor = UIColor.appDark
-    UISearchBar.appearance().setBackgroundImage(UIImage.from(color: UIColor(hex: 0xf4f4f7)), for: .any, barMetrics: .default)
-    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : UIFont.appFontOfSize(13), NSAttributedString.Key.foregroundColor : UIColor.appLightLight], for: .normal)
-    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : UIFont.appFontOfSize(13), NSAttributedString.Key.foregroundColor : UIColor.main], for: .selected)
-    UITabBar.appearance().barTintColor = UIColor.appDark
-}
-
-func navTitleTextAttributes() -> [NSAttributedString.Key : Any] {
-    return [NSAttributedString.Key.font : UIFont.appSemiBoldFontOfSize(21.0), .foregroundColor : UIColor.white]
-}
-
 // MARK: - UIImage
 
 extension UIImage {
@@ -381,27 +365,15 @@ extension UIColor {
     }
 
     class var main: UIColor {
-        return UIColor(hex: 0xEF3340)
+        return UIColor(hex: 0x1976D2)
     }
 
-    class var appLightLight: UIColor {
-        return UIColor(hex: 0xd9d9d9)
+    class var accent: UIColor {
+        return UIColor(hex: 0x1E88E5)
     }
 
-    class var appLight: UIColor {
-        return UIColor(hex: 0x969696)
-    }
-
-    class var appBorder: UIColor {
-        return UIColor(hex: 0x242424)
-    }
-
-    class var appDarkDark: UIColor {
-        return UIColor(hex: 0x050505)
-    }
-
-    class var appDark: UIColor {
-        return UIColor(hex: 0x121212)
+    class var overlay: UIColor {
+        return UIColor(hex: 0x1565C0)
     }
 
 }
@@ -466,7 +438,7 @@ class AppTextField : UITextField {
         styleField()
     }
 
-    func styleField(borderColor: UIColor = UIColor(hex: 0xcccccc), textColor: UIColor = UIColor.appDark, placeholderColor: UIColor = UIColor(hex: 0x999999), cornerRadius: CGFloat = 3, borderWidth: CGFloat = 1, font: UIFont = UIFont.appFontOfSize(13)) {
+    func styleField(borderColor: UIColor = UIColor(hex: 0xcccccc), textColor: UIColor = UIColor.darkGray, placeholderColor: UIColor = UIColor(hex: 0x999999), cornerRadius: CGFloat = 3, borderWidth: CGFloat = 1, font: UIFont = UIFont.appFontOfSize(13)) {
         self.font = font
         self.placeholderColor = placeholderColor
         self.textColor = textColor
