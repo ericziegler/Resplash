@@ -21,6 +21,9 @@
 		785C706F258829AD0040BCF4 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 785C706B258829AD0040BCF4 /* OpenSans-SemiBold.ttf */; };
 		785C7070258829AD0040BCF4 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 785C706C258829AD0040BCF4 /* OpenSans-Bold.ttf */; };
 		785C7071258829AD0040BCF4 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 785C706D258829AD0040BCF4 /* OpenSans-Light.ttf */; };
+		785C7075258840560040BCF4 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C7074258840560040BCF4 /* LogManager.swift */; };
+		785C70782588405C0040BCF4 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C70772588405C0040BCF4 /* Log.swift */; };
+		785C707B258840660040BCF4 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C707A258840660040BCF4 /* Beverage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		785C706B258829AD0040BCF4 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		785C706C258829AD0040BCF4 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		785C706D258829AD0040BCF4 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		785C7074258840560040BCF4 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		785C70772588405C0040BCF4 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		785C707A258840660040BCF4 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,9 @@
 		785C705C258829310040BCF4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				785C7074258840560040BCF4 /* LogManager.swift */,
+				785C70772588405C0040BCF4 /* Log.swift */,
+				785C707A258840660040BCF4 /* Beverage.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -229,7 +238,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				785C707B258840660040BCF4 /* Beverage.swift in Sources */,
+				785C7075258840560040BCF4 /* LogManager.swift in Sources */,
 				785C7047258828FC0040BCF4 /* Main'Controller.swift in Sources */,
+				785C70782588405C0040BCF4 /* Log.swift in Sources */,
 				785C70622588296D0040BCF4 /* BaseViewController.swift in Sources */,
 				785C7067258829950040BCF4 /* FoundationExtensions.swift in Sources */,
 				785C7043258828FC0040BCF4 /* AppDelegate.swift in Sources */,
