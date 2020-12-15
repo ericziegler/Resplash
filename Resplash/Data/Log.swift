@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - Constants
 
+let DailyGoalAmount: Int = 64
 fileprivate let LogDateCacheKey = "LogDateCacheKey"
 fileprivate let LogBeveragesCacheKey = "LogBeveragesCacheKey"
 
@@ -18,6 +19,18 @@ class Log: NSObject, NSCoding {
 
     var date: Date?
     var beverages = [Beverage]()
+    var totalAmount: Int {
+        var result = 0
+        for curBeverage in beverages {
+            if let amount = curBeverage.amount {
+                result += amount
+            }
+        }
+        return result
+    }
+    var percentComplete: Double {
+        return Double(totalAmount) / Double(DailyGoalAmount)
+    }
 
     // MARK: - Init + Coding
 

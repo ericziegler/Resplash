@@ -48,4 +48,35 @@ class LogManager {
         defaults.synchronize()
     }
 
+    // MARK: - Helpers
+
+    func logForDate(_ date: Date) -> Log? {
+        for curLog in logs {
+            if let curDate = curLog.date, curDate.dateAtBeginningOfDay.timeIntervalSince1970 == date.dateAtBeginningOfDay.timeIntervalSince1970 {
+                return curLog
+            }
+        }
+        return nil
+    }
+
+    func addAmount(_ amount: Int, forDate date: Date) {
+        var log: Log
+
+        if let foundLog = logForDate(date) {
+            log = foundLog
+        } else {
+            log = Log()
+            log.date = date.dateAtBeginningOfDay
+            logs.append(log)
+        }
+
+        let beverage = Beverage()
+        beverage.type = .water
+        beverage.amount = amount
+        beverage.timestamp = date
+        log.beverages.append(beverage)
+
+        save()
+    }
+
 }

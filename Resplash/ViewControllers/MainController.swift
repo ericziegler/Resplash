@@ -29,6 +29,8 @@ class MainController: BaseViewController, CalendarViewDelegate {
 
     private var showingAddMenu = false
     private var calendarView: CalendarView?
+    private var curDate = Date()
+    private let manager = LogManager()
 
     // MARK: - UIViewController
 
@@ -39,6 +41,7 @@ class MainController: BaseViewController, CalendarViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         styleUI()
+        updateDrop()
     }
 
     private func styleUI() {
@@ -46,7 +49,7 @@ class MainController: BaseViewController, CalendarViewDelegate {
         
         dropImageView.image = dropImageView.image?.maskedWithColor(UIColor.main)
         dropBackground.backgroundColor = UIColor.accent
-        fillConstraint.constant = dropBackground.bounds.height
+        resetDrop()
 
         addButton.adjustsImageWhenHighlighted = false
 
@@ -83,7 +86,7 @@ class MainController: BaseViewController, CalendarViewDelegate {
 
     @IBAction func dateTapped(_ sender: AnyObject) {
         DispatchQueue.main.async {
-            self.calendarView = CalendarView.createCalendarFor(parentController: self, selectedDate: Date(), minDate: .distantPast, maxDate: Date(), tint: UIColor.main)
+            self.calendarView = CalendarView.createCalendarFor(parentController: self, selectedDate: self.curDate, minDate: .distantPast, maxDate: Date(), tint: UIColor.main)
             self.calendarView?.delegate = self
             self.calendarView?.showCalendar()
         }
@@ -101,8 +104,8 @@ class MainController: BaseViewController, CalendarViewDelegate {
         guard let amountButton = sender as? UIButton else {
             return
         }
-
-        print(amountButton.tag)
+        manager.addAmount(amountButton.tag, forDate: curDate)
+        updateDrop()
         hideAddMenu()
     }
 
@@ -151,9 +154,38 @@ class MainController: BaseViewController, CalendarViewDelegate {
     }
 
     private func updateSelectedDate(_ date: Date) {
+        curDate = date
+
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE MM/d/yy"
         dateLabel.text = formatter.string(from: date)
+
+        resetDrop()
+        updateDrop()
+    }
+
+    private func resetDrop() {
+        fillConstraint.constant = dropBackground.bounds.height
+        percentageLabel.text = "0%"
+        amountLabel.text = "0oz of \(DailyGoalAmount)oz"
+    }
+
+    private func updateDrop() {
+        guard let log = manager.logForDate(curDate) else {
+            return
+        }
+
+        percentageLabel.text = NSString(format: "%.0f%%", (log.percentComplete * 100)) as String
+        amountLabel.text = String("\(log.totalAmount)oz of \(DailyGoalAmount)oz")
+
+        var percentage = CGFloat(log.percentComplete)
+        if percentage > 1 {
+            percentage = 1
+        }
+        fillConstraint.constant = dropBackground.bounds.height - (dropBackground.bounds.height * percentage)
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
 
     // MARK: - CalendarViewDelegate
