@@ -26,6 +26,7 @@
 		785C707B258840660040BCF4 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C707A258840660040BCF4 /* Beverage.swift */; };
 		785C708425895FE60040BCF4 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C708325895FE60040BCF4 /* CalendarView.swift */; };
 		785C70872589614E0040BCF4 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 785C70862589614E0040BCF4 /* CalendarView.xib */; };
+		785C708C25897E490040BCF4 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C708B25897E490040BCF4 /* UserPreferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		785C707A258840660040BCF4 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		785C708325895FE60040BCF4 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		785C70862589614E0040BCF4 /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
+		785C708B25897E490040BCF4 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				785C705E258829400040BCF4 /* AppDelegate */,
 				785C705D258829360040BCF4 /* ViewControllers */,
 				785C705C258829310040BCF4 /* Data */,
+				785C708A25897E3B0040BCF4 /* Preferences */,
 				785C705B2588292C0040BCF4 /* Views */,
 				785C705A258829210040BCF4 /* Extensions */,
 				785C7058258829120040BCF4 /* Resources */,
@@ -170,6 +173,14 @@
 			path = BaseController;
 			sourceTree = "<group>";
 		};
+		785C708A25897E3B0040BCF4 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				785C708B25897E490040BCF4 /* UserPreferences.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -246,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				785C707B258840660040BCF4 /* Beverage.swift in Sources */,
+				785C708C25897E490040BCF4 /* UserPreferences.swift in Sources */,
 				785C7075258840560040BCF4 /* LogManager.swift in Sources */,
 				785C7047258828FC0040BCF4 /* MainController.swift in Sources */,
 				785C70782588405C0040BCF4 /* Log.swift in Sources */,
