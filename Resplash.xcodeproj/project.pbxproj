@@ -28,6 +28,10 @@
 		785C70872589614E0040BCF4 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 785C70862589614E0040BCF4 /* CalendarView.xib */; };
 		785C708C25897E490040BCF4 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C708B25897E490040BCF4 /* UserPreferences.swift */; };
 		785C708F2589C1CD0040BCF4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C708E2589C1CD0040BCF4 /* NotificationManager.swift */; };
+		785C7094258A4C230040BCF4 /* SettingsSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C7093258A4C230040BCF4 /* SettingsSwitchCell.swift */; };
+		785C7097258A4C2A0040BCF4 /* SettingsTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C7096258A4C2A0040BCF4 /* SettingsTimeCell.swift */; };
+		785C709A258A4CC10040BCF4 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C7099258A4CC10040BCF4 /* SettingsController.swift */; };
+		785C709D258A516A0040BCF4 /* SettingsDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C709C258A516A0040BCF4 /* SettingsDescriptionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,10 @@
 		785C70862589614E0040BCF4 /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		785C708B25897E490040BCF4 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		785C708E2589C1CD0040BCF4 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		785C7093258A4C230040BCF4 /* SettingsSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSwitchCell.swift; sourceTree = "<group>"; };
+		785C7096258A4C2A0040BCF4 /* SettingsTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTimeCell.swift; sourceTree = "<group>"; };
+		785C7099258A4CC10040BCF4 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		785C709C258A516A0040BCF4 /* SettingsDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDescriptionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +139,7 @@
 		785C705B2588292C0040BCF4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				785C7092258A4C110040BCF4 /* Cells */,
 				785C708325895FE60040BCF4 /* CalendarView.swift */,
 				785C70862589614E0040BCF4 /* CalendarView.xib */,
 			);
@@ -153,6 +162,7 @@
 				785C705F258829540040BCF4 /* BaseController */,
 				785C7048258828FC0040BCF4 /* Main.storyboard */,
 				785C7046258828FC0040BCF4 /* MainController.swift */,
+				785C7099258A4CC10040BCF4 /* SettingsController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -182,6 +192,16 @@
 				785C708E2589C1CD0040BCF4 /* NotificationManager.swift */,
 			);
 			path = Preferences;
+			sourceTree = "<group>";
+		};
+		785C7092258A4C110040BCF4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				785C7093258A4C230040BCF4 /* SettingsSwitchCell.swift */,
+				785C7096258A4C2A0040BCF4 /* SettingsTimeCell.swift */,
+				785C709C258A516A0040BCF4 /* SettingsDescriptionCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,15 +281,19 @@
 			files = (
 				785C707B258840660040BCF4 /* Beverage.swift in Sources */,
 				785C708C25897E490040BCF4 /* UserPreferences.swift in Sources */,
+				785C7094258A4C230040BCF4 /* SettingsSwitchCell.swift in Sources */,
 				785C7075258840560040BCF4 /* LogManager.swift in Sources */,
+				785C709D258A516A0040BCF4 /* SettingsDescriptionCell.swift in Sources */,
 				785C7047258828FC0040BCF4 /* MainController.swift in Sources */,
 				785C70782588405C0040BCF4 /* Log.swift in Sources */,
 				785C70622588296D0040BCF4 /* BaseViewController.swift in Sources */,
 				785C7067258829950040BCF4 /* FoundationExtensions.swift in Sources */,
+				785C709A258A4CC10040BCF4 /* SettingsController.swift in Sources */,
 				785C708425895FE60040BCF4 /* CalendarView.swift in Sources */,
 				785C7043258828FC0040BCF4 /* AppDelegate.swift in Sources */,
 				785C70632588296D0040BCF4 /* BaseNavigationController.swift in Sources */,
 				785C708F2589C1CD0040BCF4 /* NotificationManager.swift in Sources */,
+				785C7097258A4C2A0040BCF4 /* SettingsTimeCell.swift in Sources */,
 				785C7068258829950040BCF4 /* UIKitExtensions.swift in Sources */,
 				785C7045258828FC0040BCF4 /* SceneDelegate.swift in Sources */,
 			);
