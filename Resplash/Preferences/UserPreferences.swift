@@ -9,19 +9,21 @@ import Foundation
 
 // MARK: - Constants
 
-fileprivate let PreferenceNotificationsOnCacheKey = "PreferenceNotificationsCacheKey"
-fileprivate let PreferenceStartTimeCacheKey = "PreferenceStartTimeCacheKey"
-fileprivate let PreferenceEndTimeCacheKey = "PreferenceEndTimeCacheKey"
+fileprivate let NotificationsOnCacheKey = "NotificationsOnCacheKey"
+fileprivate let NotificationsStartTimeCacheKey = "NotificationsStartTimeCacheKey"
+fileprivate let NotificationsEndTimeCacheKey = "NotificationsEndTimeCacheKey"
 
 class UserPreferences {
 
     // MARK: - Properties
 
     var notificationsOn = false
-    var startTime = 8
-    var endTime = 22
+    var startComponents = DateComponents(hour: 8)
+    var endComponents = DateComponents(hour: 22)
 
     // MARK: - Init
+
+    static let shared = UserPreferences()
 
     init() {
         load()
@@ -31,22 +33,34 @@ class UserPreferences {
 
     func load() {
         let defaults = UserDefaults.standard
-        if let notificationsOnValue = defaults.object(forKey: PreferenceNotificationsOnCacheKey) as? NSNumber {
+        if let notificationsOnValue = defaults.object(forKey: NotificationsOnCacheKey) as? NSNumber {
             notificationsOn = notificationsOnValue.boolValue
         }
-        if let startTimeValue = defaults.object(forKey: PreferenceStartTimeCacheKey) as? NSNumber {
-            startTime = startTimeValue.intValue
-        }
-        if let endTimeValue = defaults.object(forKey: PreferenceEndTimeCacheKey) as? NSNumber {
-            endTime = endTimeValue.intValue
+        if let startData = defaults.object(forKey: NotificationsStartTimeCacheKey) as? Data, let endData = defaults.object(forKey: NotificationsEndTimeCacheKey) as? Data {
+            do {
+                if let cachedStartComponents = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(startData) as? DateComponents {
+                    startComponents = cachedStartComponents
+                }
+                if let cachedEndComponents = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(endData) as? DateComponents {
+                    endComponents = cachedEndComponents
+                }
+            } catch {
+                print("Could not load start/end notification time.")
+            }
         }
     }
 
     func save() {
         let defaults = UserDefaults.standard
-        defaults.set(NSNumber(booleanLiteral: notificationsOn), forKey: PreferenceNotificationsOnCacheKey)
-        defaults.set(NSNumber(integerLiteral: startTime), forKey: PreferenceStartTimeCacheKey)
-        defaults.set(NSNumber(integerLiteral: endTime), forKey: PreferenceEndTimeCacheKey)
+        defaults.set(NSNumber(booleanLiteral: notificationsOn), forKey: NotificationsOnCacheKey)
+        do {
+            let startData = try NSKeyedArchiver.archivedData(withRootObject: startComponents, requiringSecureCoding: false)
+            defaults.set(startData, forKey: NotificationsStartTimeCacheKey)
+            let endData = try NSKeyedArchiver.archivedData(withRootObject: endComponents, requiringSecureCoding: false)
+            defaults.set(endData, forKey: NotificationsEndTimeCacheKey)
+        } catch {
+            print("Could not save start/end notification time.")
+        }
         defaults.synchronize()
     }
 

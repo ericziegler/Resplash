@@ -27,6 +27,7 @@
 		785C708425895FE60040BCF4 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C708325895FE60040BCF4 /* CalendarView.swift */; };
 		785C70872589614E0040BCF4 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 785C70862589614E0040BCF4 /* CalendarView.xib */; };
 		785C708C25897E490040BCF4 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C708B25897E490040BCF4 /* UserPreferences.swift */; };
+		785C708F2589C1CD0040BCF4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C708E2589C1CD0040BCF4 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		785C708325895FE60040BCF4 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		785C70862589614E0040BCF4 /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		785C708B25897E490040BCF4 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		785C708E2589C1CD0040BCF4 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				785C708B25897E490040BCF4 /* UserPreferences.swift */,
+				785C708E2589C1CD0040BCF4 /* NotificationManager.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				785C708425895FE60040BCF4 /* CalendarView.swift in Sources */,
 				785C7043258828FC0040BCF4 /* AppDelegate.swift in Sources */,
 				785C70632588296D0040BCF4 /* BaseNavigationController.swift in Sources */,
+				785C708F2589C1CD0040BCF4 /* NotificationManager.swift in Sources */,
 				785C7068258829950040BCF4 /* UIKitExtensions.swift in Sources */,
 				785C7045258828FC0040BCF4 /* SceneDelegate.swift in Sources */,
 			);
