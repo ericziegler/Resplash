@@ -38,6 +38,11 @@ class MainController: BaseViewController, CalendarViewDelegate {
         super.viewDidLoad()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        resetDrop()
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         styleUI()
