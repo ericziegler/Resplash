@@ -15,6 +15,9 @@
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans-Regular</string>
         </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Main Controller-->
@@ -194,7 +197,7 @@
                                     <constraint firstItem="gkK-vn-M1K" firstAttribute="top" secondItem="m4k-je-ZAc" secondAttribute="top" constant="220" id="vQP-Bf-Zr0"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAY-Bf-FAX" customClass="ActionButton" customModule="Resplash" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAY-Bf-FAX" customClass="ActionButton" customModule="Resplash" customModuleProvider="target">
                                 <rect key="frame" x="175" y="798" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="HiL-f2-aOa"/>
@@ -205,6 +208,17 @@
                                     <action selector="addTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ztl-JA-zhU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r26-Zc-uSF" customClass="ActionButton" customModule="Resplash" customModuleProvider="target">
+                                <rect key="frame" x="5" y="42.5" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="R88-lb-1E6"/>
+                                    <constraint firstAttribute="width" constant="44" id="h31-uI-C25"/>
+                                </constraints>
+                                <state key="normal" image="Settings"/>
+                                <connections>
+                                    <action selector="settingsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4oa-fr-a1p"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.098039215686274508" green="0.46274509803921571" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -212,11 +226,13 @@
                             <constraint firstItem="vid-QA-ePb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0Uj-SD-z6k"/>
                             <constraint firstItem="yAY-Bf-FAX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="87R-3F-NbN"/>
                             <constraint firstItem="m4k-je-ZAc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="9j8-LL-2Ky"/>
+                            <constraint firstItem="r26-Zc-uSF" firstAttribute="centerY" secondItem="2LF-Ic-YfJ" secondAttribute="centerY" id="Ala-US-2sf"/>
                             <constraint firstItem="m4k-je-ZAc" firstAttribute="top" secondItem="vid-QA-ePb" secondAttribute="bottom" constant="32" id="B21-7f-qlP"/>
                             <constraint firstItem="UAW-q7-WSM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="J14-Ap-n2b"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yAY-Bf-FAX" secondAttribute="bottom" id="Rm0-b6-91R"/>
                             <constraint firstItem="vid-QA-ePb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VSQ-am-uW6"/>
                             <constraint firstItem="KHw-2a-BlL" firstAttribute="top" secondItem="m4k-je-ZAc" secondAttribute="bottom" constant="20" id="YC1-RG-zaU"/>
+                            <constraint firstItem="r26-Zc-uSF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="ayQ-Mh-yHf"/>
                             <constraint firstItem="y5u-y7-aVd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ihg-S9-TAh"/>
                             <constraint firstAttribute="bottom" secondItem="UAW-q7-WSM" secondAttribute="bottom" id="j3b-Cd-Sat"/>
                             <constraint firstItem="y5u-y7-aVd" firstAttribute="top" secondItem="KHw-2a-BlL" secondAttribute="bottom" id="jCh-Tw-JIT"/>
@@ -259,15 +275,40 @@
                                 <rect key="frame" x="0.0" y="84" width="414" height="778"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsHeaderCellId" id="5BO-2R-zjG" customClass="SettingsHeaderCell" customModule="Resplash" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="35"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5BO-2R-zjG" id="oKd-J8-L0J">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoG-gu-nKx" customClass="SemiBoldLabel" customModule="Resplash" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="5" width="64" height="25"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
+                                                    <color key="textColor" white="0.59578339041095896" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                            <constraints>
+                                                <constraint firstItem="UoG-gu-nKx" firstAttribute="leading" secondItem="oKd-J8-L0J" secondAttribute="leading" constant="15" id="6pg-y4-3hd"/>
+                                                <constraint firstAttribute="bottom" secondItem="UoG-gu-nKx" secondAttribute="bottom" constant="5" id="dW8-Kh-fKT"/>
+                                                <constraint firstItem="UoG-gu-nKx" firstAttribute="top" secondItem="oKd-J8-L0J" secondAttribute="top" constant="5" id="gsF-Bc-EKR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="headerLabel" destination="UoG-gu-nKx" id="vFC-fj-xxU"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsTimeCellId" id="7hx-0O-yoe" customClass="SettingsTimeCell" customModule="Resplash" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="63.5"/>
+                                        <rect key="frame" x="0.0" y="63" width="414" height="63.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7hx-0O-yoe" id="BDd-zk-kb5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="63.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="5Yz-Bz-eds">
-                                                    <rect key="frame" x="202" y="5" width="197" height="53.5"/>
+                                                    <rect key="frame" x="202" y="5" width="197" height="53"/>
                                                     <color key="tintColor" red="0.082352941176470587" green="0.396078431372549" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="timeChanged:" destination="7hx-0O-yoe" eventType="valueChanged" id="163-4H-Dxt"/>
@@ -305,7 +346,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsSwitchCellId" id="unR-Nt-2C7" customClass="SettingsSwitchCell" customModule="Resplash" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="91.5" width="414" height="55"/>
+                                        <rect key="frame" x="0.0" y="126.5" width="414" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="unR-Nt-2C7" id="vSD-tv-QPD">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
@@ -351,7 +392,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsDescriptionCellId" id="Mtc-Wq-tAJ" customClass="SettingsDescriptionCell" customModule="Resplash" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="146.5" width="414" height="69.5"/>
+                                        <rect key="frame" x="0.0" y="181.5" width="414" height="69.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mtc-Wq-tAJ" id="WLr-7w-clL">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
@@ -392,10 +433,24 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gh7-NC-x2f" customClass="ActionButton" customModule="Resplash" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="42" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="I7q-RX-wBc"/>
+                                            <constraint firstAttribute="height" constant="40" id="lTl-ip-W84"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                        <state key="normal" image="Close"/>
+                                        <connections>
+                                            <action selector="closeTapped:" destination="0eb-SM-LIa" eventType="touchUpInside" id="ZDG-Ve-wwM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.46274509803921571" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="gh7-NC-x2f" firstAttribute="leading" secondItem="NMU-1S-T9a" secondAttribute="leading" constant="15" id="0Iz-OK-fkX"/>
                                     <constraint firstAttribute="height" constant="84" id="EyX-tQ-f17"/>
+                                    <constraint firstItem="gh7-NC-x2f" firstAttribute="centerY" secondItem="dhi-Kp-XCK" secondAttribute="centerY" id="gN0-TF-EBw"/>
                                     <constraint firstAttribute="bottom" secondItem="dhi-Kp-XCK" secondAttribute="bottom" constant="8" id="nQR-Rw-3ta"/>
                                     <constraint firstItem="dhi-Kp-XCK" firstAttribute="centerX" secondItem="NMU-1S-T9a" secondAttribute="centerX" id="zHk-Ae-mUF"/>
                                 </constraints>
@@ -414,7 +469,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="header" destination="NMU-1S-T9a" id="JaQ-5T-q1q"/>
+                        <outlet property="header" destination="NMU-1S-T9a" id="FN8-bR-Ntr"/>
                         <outlet property="settingsTable" destination="qY6-3p-eyI" id="8Yk-Dj-Fil"/>
                     </connections>
                 </viewController>
@@ -425,8 +480,10 @@
     </scenes>
     <resources>
         <image name="Add" width="66" height="66"/>
+        <image name="Close" width="20" height="20"/>
         <image name="Drop" width="300" height="420"/>
         <image name="Dropdown" width="22" height="10"/>
+        <image name="Settings" width="24" height="24"/>
         <systemColor name="separatorColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.098039215686274508" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -435,6 +492,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

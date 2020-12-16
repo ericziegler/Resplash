@@ -18,8 +18,8 @@ class UserPreferences {
     // MARK: - Properties
 
     var notificationsOn = false
-    var startComponents = DateComponents(hour: 8)
-    var endComponents = DateComponents(hour: 22)
+    var startComponents = DateComponents(hour: 8, minute: 0)
+    var endComponents = DateComponents(hour: 22, minute: 0)
 
     // MARK: - Init
 

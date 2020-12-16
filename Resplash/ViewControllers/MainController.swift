@@ -51,8 +51,6 @@ class MainController: BaseViewController, CalendarViewDelegate {
         dropBackground.backgroundColor = UIColor.accent
         resetDrop()
 
-        addButton.adjustsImageWhenHighlighted = false
-
         addMenu.backgroundColor = UIColor.overlay
         addMenu.layer.shadowColor = UIColor.black.cgColor
         addMenu.layer.shadowRadius = 2
@@ -83,6 +81,12 @@ class MainController: BaseViewController, CalendarViewDelegate {
     }
 
     // MARK: - Actions
+
+    @IBAction func settingsTapped(_ sender: AnyObject) {
+        let controller = SettingsController.createController()
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true, completion: nil)
+    }
 
     @IBAction func dateTapped(_ sender: AnyObject) {
         DispatchQueue.main.async {
