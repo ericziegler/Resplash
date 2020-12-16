@@ -35,7 +35,11 @@ class SettingsController: BaseViewController, UITableViewDataSource, UITableView
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // TODO: EZ - Update Notifications
+        // Update notifications to reflect changes made in settings
+        NotificationManager.shared.unscheduleAllNotifications()
+        if UserPreferences.shared.notificationsOn == true {
+            NotificationManager.shared.setupNotificationsBetween(startComponents: UserPreferences.shared.startComponents, endComponents: UserPreferences.shared.endComponents, hourInterval: 2)
+        }
     }
 
     private func styleUI() {
@@ -184,9 +188,6 @@ class SettingsController: BaseViewController, UITableViewDataSource, UITableView
             UserPreferences.shared.endComponents = DateComponents(hour: hour, minute: minute)
         }
         UserPreferences.shared.save()
-        DispatchQueue.main.async {
-            self.settingsTable.reloadData()
-        }
     }
 
 }

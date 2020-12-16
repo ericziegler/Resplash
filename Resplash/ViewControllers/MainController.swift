@@ -171,7 +171,9 @@ class MainController: BaseViewController, CalendarViewDelegate {
     private func resetDrop() {
         fillConstraint.constant = dropBackground.bounds.height
         percentageLabel.text = "0%"
-        amountLabel.text = "0oz of \(DailyGoalAmount)oz"
+        // TODO: EZ - Remove
+//        amountLabel.text = "0oz of \(DailyGoalAmount)oz"
+        styleAmountLabel(amount: "\(0)", goal: "\(DailyGoalAmount)")
     }
 
     private func updateDrop() {
@@ -180,7 +182,9 @@ class MainController: BaseViewController, CalendarViewDelegate {
         }
 
         percentageLabel.text = NSString(format: "%.0f%%", (log.percentComplete * 100)) as String
-        amountLabel.text = String("\(log.totalAmount)oz of \(DailyGoalAmount)oz")
+        styleAmountLabel(amount: "\(log.totalAmount)", goal: "\(DailyGoalAmount)")
+        // TODO: EZ - Remove
+//        amountLabel.text = String("\(log.totalAmount)oz of \(DailyGoalAmount)oz")
 
         var percentage = CGFloat(log.percentComplete)
         if percentage > 1 {
@@ -190,6 +194,27 @@ class MainController: BaseViewController, CalendarViewDelegate {
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+    }
+
+    private func styleAmountLabel(amount: String, goal: String) {
+        let attributedString = NSMutableAttributedString()
+        attributedString.append(NSAttributedString(string: amount,
+                                                   attributes: [NSAttributedString.Key.font : UIFont.appSemiBoldFontOfSize(32),
+                                                                NSAttributedString.Key.foregroundColor : UIColor.white]))
+
+        attributedString.append(NSAttributedString(string: " oz of ",
+                                                   attributes: [NSAttributedString.Key.font : UIFont.appLightFontOfSize(32),
+                                                                NSAttributedString.Key.foregroundColor : UIColor.white]))
+
+        attributedString.append(NSAttributedString(string: goal,
+                                                   attributes: [NSAttributedString.Key.font : UIFont.appSemiBoldFontOfSize(32),
+                                                                NSAttributedString.Key.foregroundColor : UIColor.white]))
+
+        attributedString.append(NSAttributedString(string: " oz",
+                                                   attributes: [NSAttributedString.Key.font : UIFont.appLightFontOfSize(32),
+                                                                NSAttributedString.Key.foregroundColor : UIColor.white]))
+
+        amountLabel.attributedText = attributedString
     }
 
     // MARK: - CalendarViewDelegate
