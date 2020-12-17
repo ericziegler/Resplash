@@ -45,6 +45,7 @@ class MainController: BaseViewController, CalendarViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        NotificationManager.shared.clearDeliveredNotifications()
         styleUI()
         updateDrop()
     }
