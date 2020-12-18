@@ -6,8 +6,12 @@
 //
 
 import UIKit
+// TODO: EZ - Remove
+//import WatchConnectivity
 
 class MainController: BaseViewController, CalendarViewDelegate {
+    // TODO: EZ - Remove
+//class MainController: BaseViewController, WCSessionDelegate, CalendarViewDelegate {
 
     // MARK: - Properties
 
@@ -30,25 +34,41 @@ class MainController: BaseViewController, CalendarViewDelegate {
     private var showingAddMenu = false
     private var calendarView: CalendarView?
     private var curDate = Date()
-    private let manager = LogManager()
+    private let manager = LogManager.shared
+    // TODO: EZ - Remove
+//    private var watchSession: WCSession?
 
     // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // TODO: EZ - Remove
+//        setupWatchSession()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         resetDrop()
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationManager.shared.clearDeliveredNotifications()
         styleUI()
+        updateSelectedDate(curDate)
         updateDrop()
+        NotificationCenter.default.addObserver(self, selector: #selector(amountUpdated), name: Notification.Name(LogManagerAmountAddedNotification), object: nil)
     }
+
+    // TODO: EZ - Remvoe
+//    private func setupWatchSession() {
+//        if WCSession.isSupported() {
+//          watchSession = WCSession.default
+//          watchSession?.delegate = self
+//          watchSession?.activate()
+//        }
+//    }
 
     private func styleUI() {
         self.view.backgroundColor = UIColor.main
@@ -167,7 +187,7 @@ class MainController: BaseViewController, CalendarViewDelegate {
         curDate = date
 
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEE MM/d/yy"
+        formatter.dateFormat = "EEE M/d/yy"
         dateLabel.text = formatter.string(from: date)
 
         resetDrop()
@@ -177,9 +197,7 @@ class MainController: BaseViewController, CalendarViewDelegate {
     private func resetDrop() {
         fillConstraint.constant = dropBackground.bounds.height
         percentageLabel.text = "0%"
-        // TODO: EZ - Remove
-//        amountLabel.text = "0oz of \(DailyGoalAmount)oz"
-        styleAmountLabel(amount: "\(0)", goal: "\(DailyGoalAmount)")
+        styleAmountLabel(amount: 0, goal: DailyGoalAmount)
     }
 
     private func updateDrop() {
@@ -187,41 +205,109 @@ class MainController: BaseViewController, CalendarViewDelegate {
             return
         }
 
-        percentageLabel.text = NSString(format: "%.0f%%", (log.percentComplete * 100)) as String
-        styleAmountLabel(amount: "\(log.totalAmount)", goal: "\(DailyGoalAmount)")
-        // TODO: EZ - Remove
-//        amountLabel.text = String("\(log.totalAmount)oz of \(DailyGoalAmount)oz")
-
         var percentage = CGFloat(log.percentComplete)
         if percentage > 1 {
             percentage = 1
         }
+        
+        percentageLabel.text = NSString(format: "%.0f%%", (percentage * 100)) as String
+        styleAmountLabel(amount: log.totalAmount, goal: DailyGoalAmount)
+
         fillConstraint.constant = dropBackground.bounds.height - (dropBackground.bounds.height * percentage)
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
     }
 
-    private func styleAmountLabel(amount: String, goal: String) {
+    private func styleAmountLabel(amount: Int, goal: Int) {
         let attributedString = NSMutableAttributedString()
-        attributedString.append(NSAttributedString(string: amount,
-                                                   attributes: [NSAttributedString.Key.font : UIFont.appSemiBoldFontOfSize(32),
-                                                                NSAttributedString.Key.foregroundColor : UIColor.white]))
+        if amount <= goal {
+            attributedString.append(NSAttributedString(string: "\(amount)",
+                                                       attributes: [NSAttributedString.Key.font : UIFont.appSemiBoldFontOfSize(32),
+                                                                    NSAttributedString.Key.foregroundColor : UIColor.white]))
 
-        attributedString.append(NSAttributedString(string: " oz of ",
-                                                   attributes: [NSAttributedString.Key.font : UIFont.appLightFontOfSize(32),
-                                                                NSAttributedString.Key.foregroundColor : UIColor.white]))
+            attributedString.append(NSAttributedString(string: " oz of ",
+                                                       attributes: [NSAttributedString.Key.font : UIFont.appLightFontOfSize(32),
+                                                                    NSAttributedString.Key.foregroundColor : UIColor.white]))
 
-        attributedString.append(NSAttributedString(string: goal,
-                                                   attributes: [NSAttributedString.Key.font : UIFont.appSemiBoldFontOfSize(32),
-                                                                NSAttributedString.Key.foregroundColor : UIColor.white]))
+            attributedString.append(NSAttributedString(string: "\(goal)",
+                                                       attributes: [NSAttributedString.Key.font : UIFont.appSemiBoldFontOfSize(32),
+                                                                    NSAttributedString.Key.foregroundColor : UIColor.white]))
 
-        attributedString.append(NSAttributedString(string: " oz",
-                                                   attributes: [NSAttributedString.Key.font : UIFont.appLightFontOfSize(32),
-                                                                NSAttributedString.Key.foregroundColor : UIColor.white]))
+            attributedString.append(NSAttributedString(string: " oz",
+                                                       attributes: [NSAttributedString.Key.font : UIFont.appLightFontOfSize(32),
+                                                                    NSAttributedString.Key.foregroundColor : UIColor.white]))
+        } else {
+            attributedString.append(NSAttributedString(string: "\(amount)",
+                                                       attributes: [NSAttributedString.Key.font : UIFont.appSemiBoldFontOfSize(32),
+                                                                    NSAttributedString.Key.foregroundColor : UIColor.white]))
 
+            attributedString.append(NSAttributedString(string: " oz",
+                                                       attributes: [NSAttributedString.Key.font : UIFont.appLightFontOfSize(32),
+                                                                    NSAttributedString.Key.foregroundColor : UIColor.white]))
+        }
         amountLabel.attributedText = attributedString
     }
+
+    // TODO: EZ - Remove
+
+//    // MARK: - Watch Helpers
+//
+//    private func sendWatchDataFor(date: Date, replyHandler: @escaping ([String : Any]) -> Void) {
+//        var data: [String : Any] = [String : Any]()
+//        data["key"] = "requestAmount"
+//        if let log = manager.logForDate(date) {
+//            var percentage = CGFloat(log.percentComplete)
+//            if percentage > 1 {
+//                percentage = 1
+//            }
+//            data["percentage"] = NSString(format: "%.0f%%", (percentage * 100)) as String
+//            data["amount"] = "\(log.totalAmount)oz of \(DailyGoalAmount)oz"
+//        }
+//        watchSession?.sendMessage(data, replyHandler: nil, errorHandler: nil)
+//    }
+//
+//    private func updateAmount(_ amount: Int, forDate date: Date, replyHandler: @escaping ([String : Any]) -> Void) {
+//        manager.addAmount(amount, forDate: date)
+//        manager.save()
+//        sendWatchDataFor(date: Date(), replyHandler: replyHandler)
+//        updateDrop()
+//    }
+
+
+    // TODO: EZ - Remove
+//    // MARK: - WCSessionDelegate
+//
+//    func sessionDidBecomeInactive(_ session: WCSession) {
+//
+//    }
+//
+//    func sessionDidDeactivate(_ session: WCSession) {
+//
+//    }
+//
+//    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+//
+//    }
+//
+//    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+//        DispatchQueue.main.async {
+//            guard let key = message["key"] as? String else {
+//                return
+//            }
+//            // check key
+//            switch key {
+//            case "requestAmount":
+//                self.sendWatchDataFor(date: Date(), replyHandler: replyHandler)
+//            case "addDailyAmount":
+//                if let amount = message["amount"] as? NSNumber {
+//                    self.updateAmount(amount.intValue, forDate: Date(), replyHandler: replyHandler)
+//                }
+//            default:
+//                break
+//            }
+//        }
+//    }
 
     // MARK: - CalendarViewDelegate
 
@@ -233,6 +319,14 @@ class MainController: BaseViewController, CalendarViewDelegate {
         DispatchQueue.main.async {
             self.updateSelectedDate(date)
             calendarView.hideCalendar()
+        }
+    }
+
+    // MARK: - Notifications
+
+    @objc func amountUpdated() {
+        DispatchQueue.main.async {
+            self.updateDrop()
         }
     }
 

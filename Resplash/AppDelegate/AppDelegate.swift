@@ -12,7 +12,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - UIApplicationDelegate
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {        
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // activate watch if possible
+        if WatchManager.shared.isSupported == false {
+            print("WCSession not supported.")
+        }
         return true
     }
 

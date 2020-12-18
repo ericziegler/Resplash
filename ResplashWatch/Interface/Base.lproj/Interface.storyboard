@@ -9,9 +9,60 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="ResplashWatch" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="ResplashWatch" customModuleProvider="target">
+                    <items>
+                        <label width="136" alignment="left" text="Add water..." textAlignment="left" id="vPa-Bm-Q4M">
+                            <fontDescription key="font" type="system" pointSize="20"/>
+                        </label>
+                        <label alignment="left" text=" " id="vxh-l0-DhI">
+                            <fontDescription key="font" type="system" pointSize="2"/>
+                        </label>
+                        <separator alignment="left" id="TYr-ht-heZ"/>
+                        <label alignment="left" text=" " id="Ufr-gL-Eek">
+                            <fontDescription key="font" type="system" pointSize="5"/>
+                        </label>
+                        <button width="1" alignment="left" title="Add 8 oz" id="Vgk-rZ-a3c">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.63626391270000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="amount8Tapped" destination="AgC-eL-Hgc" id="VfP-NN-QyO"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Add 10 oz" id="hK5-SG-l2h">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.63626391270000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="amount10Tapped" destination="AgC-eL-Hgc" id="E9q-yq-0NQ"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Add 12 oz" id="lCc-xI-IVj">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.63626391270000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="amount12Tapped" destination="AgC-eL-Hgc" id="fLf-Vp-mm9"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Add 16 oz" id="XTX-Mt-k3n">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.63626391270000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="amount16Tapped" destination="AgC-eL-Hgc" id="jWp-yn-IHK"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Add 20 oz" id="VFy-YV-EY2">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.63626391270000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="amount20Tapped" destination="AgC-eL-Hgc" id="c6i-rM-JDz"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="dateLabel" destination="vPa-Bm-Q4M" id="8Df-v8-oO1"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="163" y="345"/>
+            <point key="canvasLocation" x="163" y="307"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -43,6 +94,69 @@
                 <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="ResplashWatch" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="hWp-OO-Waa">
+            <objects>
+                <controller id="pJ7-Ic-ARe">
+                    <items>
+                        <label width="136" alignment="left" text="-/-/--" textAlignment="left" id="KU2-PN-OKd">
+                            <fontDescription key="font" type="system" pointSize="20"/>
+                        </label>
+                        <label width="1" height="70" alignment="left" text="--%" textAlignment="center" id="xcS-Vw-fCs">
+                            <fontDescription key="font" type="system" pointSize="50"/>
+                        </label>
+                        <label width="1" height="35" alignment="left" text="--oz of --oz" textAlignment="center" id="FaW-KN-spn">
+                            <fontDescription key="font" type="system" pointSize="20"/>
+                        </label>
+                        <separator alignment="left" id="tHY-Zb-GPa"/>
+                        <label alignment="left" text=" " id="rAG-lb-7lR">
+                            <fontDescription key="font" type="system" pointSize="10"/>
+                        </label>
+                        <button width="1" alignment="left" title="Add 8 oz" id="dKn-eu-aIA">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.63626391270000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="amount8Tapped" destination="pJ7-Ic-ARe" id="Fyf-wY-Bfo"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Add 10 oz" id="kJc-9H-1IC">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.63626391270000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="amount10Tapped" destination="pJ7-Ic-ARe" id="tzA-xW-VMq"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Add 12 oz" id="XcF-kt-7eu">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.63626391270000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="amount12Tapped" destination="pJ7-Ic-ARe" id="rgs-BR-nAd"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Add 16 oz" id="r8E-cM-5r9">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.63626391270000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="amount16Tapped" destination="pJ7-Ic-ARe" id="q5r-ug-8iu"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Add 20 oz" id="nLO-Ku-s6u">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.63626391270000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="amount20Tapped" destination="pJ7-Ic-ARe" id="WCD-7j-5RC"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="amountLabel" destination="FaW-KN-spn" id="4T8-bo-qWI"/>
+                        <outlet property="dateLabel" destination="KU2-PN-OKd" id="9qX-8x-pqY"/>
+                        <outlet property="percentageLabel" destination="xcS-Vw-fCs" id="oMm-fJ-pwE"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-59" y="307"/>
         </scene>
     </scenes>
 </document>

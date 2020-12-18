@@ -10,6 +10,7 @@ import Foundation
 // MARK: - Constant
 
 fileprivate let LogManagerLogsCacheKey = "LogManagerLogsCacheKey"
+let LogManagerAmountAddedNotification = "LogManagerAmountAddedNotification"
 
 class LogManager {
 
@@ -18,6 +19,8 @@ class LogManager {
     var logs = [Log]()
 
     // MARK: - Init
+
+    static let shared = LogManager()
 
     init() {
         load()
@@ -75,6 +78,8 @@ class LogManager {
         beverage.amount = amount
         beverage.timestamp = date
         log.beverages.append(beverage)
+
+        NotificationCenter.default.post(name: Notification.Name(LogManagerAmountAddedNotification), object: nil, userInfo: nil)
 
         save()
     }

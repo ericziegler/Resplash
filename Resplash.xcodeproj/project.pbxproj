@@ -42,6 +42,7 @@
 		785C70BF258B07CD0040BCF4 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C70BE258B07CD0040BCF4 /* ComplicationController.swift */; };
 		785C70C1258B07CD0040BCF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 785C70C0258B07CD0040BCF4 /* Assets.xcassets */; };
 		785C70C6258B07CD0040BCF4 /* ResplashWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 785C70A7258B07CB0040BCF4 /* ResplashWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7868BB4E258BD6BE006CE49C /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7868BB4D258BD6BE006CE49C /* WatchManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		785C70C0258B07CD0040BCF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		785C70C2258B07CD0040BCF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		785C70C3258B07CD0040BCF4 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		7868BB4D258BD6BE006CE49C /* WatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				785C705D258829360040BCF4 /* ViewControllers */,
 				785C705C258829310040BCF4 /* Data */,
 				785C708A25897E3B0040BCF4 /* Preferences */,
+				7868BB4C258BD6A9006CE49C /* WatchManager */,
 				785C705B2588292C0040BCF4 /* Views */,
 				785C705A258829210040BCF4 /* Extensions */,
 				785C7058258829120040BCF4 /* Resources */,
@@ -337,6 +340,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		7868BB4C258BD6A9006CE49C /* WatchManager */ = {
+			isa = PBXGroup;
+			children = (
+				7868BB4D258BD6BE006CE49C /* WatchManager.swift */,
+			);
+			path = WatchManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -480,6 +491,7 @@
 				785C709D258A516A0040BCF4 /* SettingsDescriptionCell.swift in Sources */,
 				785C70A0258A5B400040BCF4 /* SettingsHeaderCell.swift in Sources */,
 				785C7047258828FC0040BCF4 /* MainController.swift in Sources */,
+				7868BB4E258BD6BE006CE49C /* WatchManager.swift in Sources */,
 				785C70782588405C0040BCF4 /* Log.swift in Sources */,
 				785C70622588296D0040BCF4 /* BaseViewController.swift in Sources */,
 				785C7067258829950040BCF4 /* FoundationExtensions.swift in Sources */,
@@ -711,6 +723,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = MJA8334VZT;
 				INFOPLIST_FILE = "ResplashWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -724,7 +737,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.1;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
 		};
@@ -733,6 +746,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = MJA8334VZT;
 				INFOPLIST_FILE = "ResplashWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -746,7 +760,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.1;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
 		};
@@ -757,6 +771,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = MJA8334VZT;
 				IBSC_MODULE = ResplashWatch_Extension;
 				INFOPLIST_FILE = ResplashWatch/Info.plist;
@@ -766,7 +781,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.1;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
 		};
@@ -777,6 +792,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = MJA8334VZT;
 				IBSC_MODULE = ResplashWatch_Extension;
 				INFOPLIST_FILE = ResplashWatch/Info.plist;
@@ -786,7 +802,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.1;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
 		};

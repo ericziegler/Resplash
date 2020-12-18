@@ -48,11 +48,12 @@ class NotificationManager {
         components.hour = startComponents.hour
         components.minute = startComponents.minute
 
-        while components.hour! < endComponents.hour! {
+        // add one hour to endComponents to make sure the final end time is included
+        while components.hour! < endComponents.hour! + 1 {
             // create and add the notification
             let content = UNMutableNotificationContent()
             content.title = "Time to Resplash!"
-            content.body = "Be sure to drink 8 oz. of water this hour."
+            content.body = "Be sure to drink at least 8 oz. of water this hour."
             content.categoryIdentifier = NotificationReminderCategory
             content.sound = UNNotificationSound.default
             let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: repeats)
