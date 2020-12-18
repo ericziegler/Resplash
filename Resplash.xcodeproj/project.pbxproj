@@ -36,13 +36,15 @@
 		785C70AB258B07CB0040BCF4 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 785C70A9258B07CB0040BCF4 /* Interface.storyboard */; };
 		785C70AD258B07CD0040BCF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 785C70AC258B07CD0040BCF4 /* Assets.xcassets */; };
 		785C70B4258B07CD0040BCF4 /* ResplashWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 785C70B3258B07CD0040BCF4 /* ResplashWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		785C70B9258B07CD0040BCF4 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C70B8258B07CD0040BCF4 /* InterfaceController.swift */; };
 		785C70BB258B07CD0040BCF4 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C70BA258B07CD0040BCF4 /* ExtensionDelegate.swift */; };
 		785C70BD258B07CD0040BCF4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C70BC258B07CD0040BCF4 /* NotificationController.swift */; };
 		785C70BF258B07CD0040BCF4 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C70BE258B07CD0040BCF4 /* ComplicationController.swift */; };
 		785C70C1258B07CD0040BCF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 785C70C0258B07CD0040BCF4 /* Assets.xcassets */; };
 		785C70C6258B07CD0040BCF4 /* ResplashWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 785C70A7258B07CB0040BCF4 /* ResplashWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7868BB4E258BD6BE006CE49C /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7868BB4D258BD6BE006CE49C /* WatchManager.swift */; };
+		7868BB76258D1B37006CE49C /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7868BB75258D1B37006CE49C /* InfoCell.swift */; };
+		7868BB7B258D1B41006CE49C /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7868BB7A258D1B41006CE49C /* AddCell.swift */; };
+		7868BB80258D1E22006CE49C /* MainWatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7868BB7F258D1E22006CE49C /* MainWatchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,7 +123,6 @@
 		785C70AC258B07CD0040BCF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		785C70AE258B07CD0040BCF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		785C70B3258B07CD0040BCF4 /* ResplashWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ResplashWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		785C70B8258B07CD0040BCF4 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		785C70BA258B07CD0040BCF4 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		785C70BC258B07CD0040BCF4 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		785C70BE258B07CD0040BCF4 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
@@ -129,6 +130,9 @@
 		785C70C2258B07CD0040BCF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		785C70C3258B07CD0040BCF4 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		7868BB4D258BD6BE006CE49C /* WatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
+		7868BB75258D1B37006CE49C /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		7868BB7A258D1B41006CE49C /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCell.swift; sourceTree = "<group>"; };
+		7868BB7F258D1E22006CE49C /* MainWatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWatchController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				785C70D5258B0DAC0040BCF4 /* Controllers */,
+				7868BB74258D1B28006CE49C /* Cells */,
 				785C70D4258B0DA30040BCF4 /* Resources */,
 			);
 			path = "ResplashWatch Extension";
@@ -332,7 +337,7 @@
 		785C70D5258B0DAC0040BCF4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				785C70B8258B07CD0040BCF4 /* InterfaceController.swift */,
+				7868BB7F258D1E22006CE49C /* MainWatchController.swift */,
 				785C70BA258B07CD0040BCF4 /* ExtensionDelegate.swift */,
 				785C70BC258B07CD0040BCF4 /* NotificationController.swift */,
 				785C70BE258B07CD0040BCF4 /* ComplicationController.swift */,
@@ -346,6 +351,15 @@
 				7868BB4D258BD6BE006CE49C /* WatchManager.swift */,
 			);
 			path = WatchManager;
+			sourceTree = "<group>";
+		};
+		7868BB74258D1B28006CE49C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7868BB75258D1B37006CE49C /* InfoCell.swift */,
+				7868BB7A258D1B41006CE49C /* AddCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -511,9 +525,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				785C70BD258B07CD0040BCF4 /* NotificationController.swift in Sources */,
+				7868BB80258D1E22006CE49C /* MainWatchController.swift in Sources */,
 				785C70BF258B07CD0040BCF4 /* ComplicationController.swift in Sources */,
 				785C70BB258B07CD0040BCF4 /* ExtensionDelegate.swift in Sources */,
-				785C70B9258B07CD0040BCF4 /* InterfaceController.swift in Sources */,
+				7868BB7B258D1B41006CE49C /* AddCell.swift in Sources */,
+				7868BB76258D1B37006CE49C /* InfoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,7 +698,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = MJA8334VZT;
 				INFOPLIST_FILE = Resplash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -703,7 +719,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = MJA8334VZT;
 				INFOPLIST_FILE = Resplash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -723,7 +739,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = MJA8334VZT;
 				INFOPLIST_FILE = "ResplashWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -746,7 +762,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = MJA8334VZT;
 				INFOPLIST_FILE = "ResplashWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -771,7 +787,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = MJA8334VZT;
 				IBSC_MODULE = ResplashWatch_Extension;
 				INFOPLIST_FILE = ResplashWatch/Info.plist;
@@ -792,7 +808,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = MJA8334VZT;
 				IBSC_MODULE = ResplashWatch_Extension;
 				INFOPLIST_FILE = ResplashWatch/Info.plist;

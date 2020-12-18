@@ -55,12 +55,8 @@ class WatchManager: NSObject, WCSessionDelegate {
             case "requestAmount":
                 data["key"] = "requestAmount"
                 if let log = LogManager.shared.logForDate(Date()) {
-                    var percentage = log.percentComplete
-                    if percentage > 1 {
-                        percentage = 1
-                    }
-                    data["percentage"] = NSString(format: "%.0f%%", (percentage * 100)) as String
-                    data["amount"] = "\(log.totalAmount)oz of \(DailyGoalAmount)oz"
+                    data["amount"] = NSNumber(integerLiteral: log.totalAmount)
+                    data["goal"] = NSNumber(integerLiteral: DailyGoalAmount)
                 }
                 replyHandler(data)                
             case "addDailyAmount":
